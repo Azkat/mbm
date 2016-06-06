@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   root to: 'mix#index'
   resources :mix
+
+  devise_for :admins
+  devise_for :accounts
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

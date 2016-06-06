@@ -32,7 +32,9 @@ gem 'tzinfo-data'
 
 gem 'seed-fu', '~> 2.3'
 
-gem 'devise'
+gem 'devise', '~> 3.4.1'
+
+gem 'rails_admin'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

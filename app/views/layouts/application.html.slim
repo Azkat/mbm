@@ -7,6 +7,25 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = csrf_meta_tags
   body
+    header
+      nav
+        /! account_signed_in? はユーザがログインしているか調べるdeviseのHelperメソッド
+        - if account_signed_in?
+          /! current_account は現在ログインしているaccountオブジェクトを返すdeviseのHelperメソッド
+          /!
+            | *_path はaccountモデルを作成したときに、
+            | deviseにより自動で作成されてますので、rake routesで確認できます
+          | Logged in as
+          = succeed "." do
+            strong= current_account.email
+          = link_to 'プロフィール変更', edit_account_registration_path
+          | 
+          | #{link_to "ログアウト", destroy_account_session_path, method: :delete}
+        - else
+          = link_to "サインイン", new_account_registration_path
+          | 
+          | #{link_to "ログイン", new_account_session_path}
+
   	p.notice= notice
 		p.alert= alert
     = yield
