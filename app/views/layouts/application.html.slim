@@ -15,9 +15,9 @@ html
           /!
             | *_path はaccountモデルを作成したときに、
             | deviseにより自動で作成されてますので、rake routesで確認できます
-          | Logged in as
-          = succeed "." do
-            strong= current_account.email
+          | Logged in as 
+          strong
+            = current_account.email
           = link_to 'プロフィール変更', edit_account_registration_path
           | 
           | #{link_to "ログアウト", destroy_account_session_path, method: :delete}
@@ -26,6 +26,6 @@ html
           | 
           | #{link_to "ログイン", new_account_session_path}
 
-  	p.notice= notice
-		p.alert= alert
+  	p.notice = notice
+		p.alert = alert
     = yield
